@@ -1,25 +1,33 @@
-<%= form_for(@article) do |f| %>
-  <% if @article.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+/ Don't put the class form-horizontal on top of form_for because it will generate 2 form tokens(I dont know what the heck it is...) Otherswise, I will get stuck with an error on the server forever.
+.row
+  .col-xs-12
+    = form_for(@article, :html => { class: "form-horizontal", role: "form" }) do |f|
+      - if @article.errors.any?
+        #error_explanation
+          %h2
+            = pluralize(@article.errors.count, "error")
+            prohibited this article from being saved:
+          %ul
+            - @article.errors.full_messages.each do |message|
+              %li= message
 
-      <ul>
-      <% @article.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+      .form-group
+        .control-label.col-sm-2
+          = f.label :title
+        .col-sm-8
+          = f.text_field :title, class: "form-control", placeholder: "Enter the title of the article", autofocus: true
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+      .form-group
+        .control-label.col-sm-2
+          = f.label :content
+        .col-sm-8
+          = f.text_area :content, class: "form-control", placeholder: "Add the content of the article", rows: 10
+
+      .form-group
+        .col-sm-offset-2.col-sm-10
+          = f.submit class: "btn btn-info btn-lg"
+
+      .col-xs-4.col-xs-offset-4
+        [ |
+        = link_to("Cancel request and return to articles listing", articles_url)
+        ]
