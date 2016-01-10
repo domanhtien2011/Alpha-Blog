@@ -47,3 +47,4 @@ end
 
 gem 'haml'
 gem 'bootstrap-sass'
+gem "haml-rails"
