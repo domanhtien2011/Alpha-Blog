@@ -48,3 +48,4 @@ end
 gem 'haml'
 gem 'bootstrap-sass'
 gem "haml-rails"
+gem 'bcrypt'
