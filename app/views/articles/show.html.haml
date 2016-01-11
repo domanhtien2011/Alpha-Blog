@@ -1,10 +1,14 @@
-%p#notice= notice
-%p
+%h2.text-center.title
   %strong Title:
   = @article.title
-%p
-  %strong Content:
-  = @article.content
-= link_to 'Edit', edit_article_path(@article)
-|
-= link_to 'Back', articles_path
+
+.well.center
+  %h4.text-center.content
+    %strong Content:
+  %hr/
+  = simple_format(@article.content)
+
+  .article-actions
+    = link_to 'Edit this article', edit_article_path(@article), class: "btn btn-xs btn-primary"
+    = link_to 'Delete this article', article_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-xs btn-danger"
+    = link_to 'Back to all articles', articles_path, class: "btn btn-xs btn-success"

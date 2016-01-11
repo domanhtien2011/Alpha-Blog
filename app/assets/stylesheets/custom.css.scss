@@ -41,6 +41,16 @@ ul.nav a:hover { color: orange !important; }
   background-color: black;
 }
 
+.article-actions {
+  border-top: 1px solid #eaeaea;
+  padding-top: 5px;
+
+}
+
+.title, .content {
+  margin-top: 0;
+}
+
 .footer {
   margin-top: 45px;
   padding-top: 5px;
@@ -65,3 +75,4 @@ ul.nav a:hover { color: orange !important; }
   float: left;
   margin-left: 15px;
 }
+
