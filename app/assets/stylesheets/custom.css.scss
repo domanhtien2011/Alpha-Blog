@@ -1,78 +1,83 @@
 $navbar-default-bg: black;
 
-ul.nav a:hover { color: orange !important; }
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 #logo {
-  float: left;
-  font-size: 1.7em;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  font-weight: bold;
+    float: left;
+    font-size: 1.7em;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-weight: bold;
 }
 
 #logo:hover {
-  text-decoration: none;
+    text-decoration: none;
 }
 
-.center {
-  text-align: center;
-}
 
 .jumbotron {
-  background-image: asset-url('blog.jpg');
-  background-size: cover;
-  height: 550px;
+    background-image: asset-url("blog.jpg");
+    background-size: cover;
+    height: 550px;
 }
 
 .jumbotron h1 {
-  color: #fff;
-  text-align: center;
-  margin-bottom: 30px;
-  letter-spacing: -1px;
-  font-weight: bold;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: -1px;
+    font-weight: bold;
 }
 
 .btn-xlarge {
-  font-size: 1.7em;
-  background-color: black;
+    font-size: 1.7em;
 }
 
 .article-actions {
-  border-top: 1px solid #eaeaea;
-  padding-top: 5px;
-
+    border-top: 1px solid #eaeaea;
+    padding-top: 5px;
 }
 
 .title, .content {
-  margin-top: 0;
+    margin-top: 0;
 }
 
 .footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid #eaeaea;
-  color: #777;
+    margin-top: 45px;
+    padding-top: 5px;
+    border-top: 1px solid #eaeaea;
+    color: #777;
 }
 
 .footer a:hover {
-  color: orange;
+    color: orange;
 }
 
 .footer small {
-  float: left;
+    float: left;
 }
 
 .footer ul {
-  float: right;
-  list-style: none;
+    float: right;
+    list-style: none;
 }
 
 .footer ul li {
-  float: left;
-  margin-left: 15px;
+    float: left;
+    margin-left: 15px;
 }
 
+.article-title {
+  font-weight: bold;
+  font-size: 1.5em;
+
+}
+
+.article-body {
+  border-top: 1px solid #eaeaea;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
