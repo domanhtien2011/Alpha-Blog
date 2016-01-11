@@ -1,4 +1,6 @@
 $navbar-default-bg: black;
+ul.nav a:hover { color: orange !important; }
+ul.nav a { color: #fff !important; }
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
