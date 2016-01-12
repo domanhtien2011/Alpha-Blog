@@ -18,7 +18,7 @@
                 = pluralize(@article.user.articles.count, "article") if @article.user.articles
 
   .text-center
-    %strong
+    %strong.text-cen
       Content
   %hr/
   = simple_format(@article.content)

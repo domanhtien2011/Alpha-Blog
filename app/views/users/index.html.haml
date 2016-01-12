@@ -2,6 +2,7 @@
   All Alpha Bloggers
 
 .text-center
+  = will_paginate
   - @users.each do |user|
     %ul.listing
       .row
@@ -14,3 +15,4 @@
             %small
               = pluralize(user.articles.count, "article") if user.articles
 
+  = will_paginate

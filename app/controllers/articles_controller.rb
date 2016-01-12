@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.paginate(page: params[:page], per_page: 5)
   end
 
   # GET /articles/1
@@ -28,7 +28,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.user = User.first
     if @article.save
-      flash[:success] = "Article was successfully created"
+      flash[:success] = 'Article was successfully created'
       redirect_to(article_path(@article))
     else
       render 'new'
@@ -55,13 +55,14 @@ class ArticlesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_article
-      @article = Article.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def article_params
-      params.require(:article).permit(:title, :content)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_article
+    @article = Article.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def article_params
+    params.require(:article).permit(:title, :content)
+  end
 end

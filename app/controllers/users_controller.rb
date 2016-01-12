@@ -16,10 +16,11 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page], per_page: 5)
   end
 
   def show
+    @user_articles = @user.articles.paginate(page: params[:page], per_page: 5)
   end
 
   def edit
@@ -27,7 +28,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:success] = "Updated your profile successfully"
+      flash[:success] = 'Updated your profile successfully'
       redirect_to :back
     else
       render 'edit'
@@ -36,11 +37,11 @@ class UsersController < ApplicationController
 
   private
 
-    def set_user
-      @user = User.find(params[:id])
-    end
+  def set_user
+    @user = User.find(params[:id])
+  end
 
-    def user_params
-      params.require(:user).permit(:username, :email, :password)
-    end
+  def user_params
+    params.require(:user).permit(:username, :email, :password)
+  end
 end
