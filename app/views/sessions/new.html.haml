@@ -1,0 +1,24 @@
+%h1.text-center
+  Log in
+
+= form_for(:session, :html => { class: "form-horizontal", role: "form" }, url: login_path) do |f|
+  .form-group
+    .control-label.col-sm-2
+      = f.label :email
+    .col-sm-8
+      = f.email_field :email, class: "form-control", placeholder: "Enter your email...", autofocus: true
+
+  .form-group
+    .control-label.col-sm-2
+      = f.label :password
+    .col-sm-8
+      = f.password_field :password, class: "form-control", placeholder: "Enter your password...", autocomplete: "off"
+
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit "Log in", class: "btn btn-info"
+
+  .col-xs-4.col-xs-offset-4
+    [ |
+    = link_to("Cancel request and return to articles listing", articles_url)
+    ]
