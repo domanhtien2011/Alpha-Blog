@@ -38,7 +38,7 @@
         %button.btn.btn-default{:type => "submit"} Submit
       %ul.nav.navbar-nav.navbar-right
         %li
-          %a{:href => "#"} Link
+          = link_to "Log out", logout_path, method: :delete
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             Dropdown
