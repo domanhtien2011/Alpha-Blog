@@ -14,5 +14,7 @@
           %li
             %small
               = pluralize(user.articles.count, "article") if user.articles
-
+          - if logged_in? && current_user.admin?
+            %li
+              = link_to("Delete this user", user_url(user), method: :delete, data: { confirm: "Are you sure?" })
   = will_paginate
