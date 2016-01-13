@@ -1,9 +1,11 @@
 %h1.text-center Listing all categories
 
 .text-center
+  = will_paginate
   - @categories.each do |category|
     %ul.listing
       .row
         .well.col-md-4.col-md-offset-4
           .article-title
             = link_to "#{category.name}", category
+  = will_paginate
