@@ -6,7 +6,7 @@
           %h2.panel-title
             = pluralize(obj.errors.count, "error")
             prohibited this article from being saved:
-        .panel-body
-          %ul
-            - obj.errors.full_messages.each do |message|
-              %li= message
+          .panel-body
+            %ul
+              - obj.errors.full_messages.each do |message|
+                %li= message
