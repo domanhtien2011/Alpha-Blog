@@ -5,7 +5,7 @@ class CategoriesControllerTest < ActionController::TestCase
   def setup
     # Use create method to create and hit and the database
     @category = Category.create(name: "sports")
-    @user = User.create(username: "Yasuo", email: "yasuo@hotmail.com", admin: true, password: "123")
+    @user = User.create(username: "Yasuo", email: "yasuo@gmail.com", admin: true, password: "123")
   end
 
   test "Should get categories index"  do

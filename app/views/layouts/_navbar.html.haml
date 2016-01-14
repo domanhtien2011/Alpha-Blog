@@ -11,20 +11,19 @@
     / Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav
-        %li
-          = link_to("Articles", articles_url)
+
         %li
           = link_to("Users", users_url)
         - if logged_in?
           %li.dropdown
             %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-              Actions
+              Articles
               %span.caret
             %ul.dropdown-menu
               %li
                 = link_to("New Article", new_article_url)
               %li
-                %a{:href => "#"} Another action
+                = link_to("All Articles", articles_url)
               %li
                 %a{:href => "#"} Something else here
               %li.divider{:role => "separator"}
@@ -33,6 +32,20 @@
               %li.divider{:role => "separator"}
               %li
                 %a{:href => "#"} One more separated link
+            %li.dropdown
+              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                Categories
+                %span.caret
+              %ul.dropdown-menu
+                %li
+                  = link_to("All Categories", categories_url)
+                  - Category.all.each do |category|
+                    %li
+                      = link_to "#{category.name}", category
+                  - if logged_in? && current_user.admin?
+                    %li.divider{:role => "separator"}
+                    %li
+                      = link_to "Create New Category", new_category_url
       %form.navbar-form.navbar-left{:role => "search"}
         .form-group
           %input.form-control{:placeholder => "Search", :type => "text"}
