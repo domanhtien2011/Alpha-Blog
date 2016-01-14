@@ -8,4 +8,7 @@
         .well.col-md-4.col-md-offset-4
           .article-title
             = link_to "#{category.name}", category
+          %li
+            %small
+              = pluralize(category.articles.count, "article")
   = will_paginate

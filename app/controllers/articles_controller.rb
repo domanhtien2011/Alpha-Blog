@@ -54,7 +54,7 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1.json
   def destroy
     @article.destroy
-    flash[:danger] = 'Article was successfully destroyed.'
+    flash[:success] = 'Article was successfully destroyed.'
     redirect_to(articles_path)
   end
 
@@ -67,7 +67,7 @@ class ArticlesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def article_params
-    params.require(:article).permit(:title, :content)
+    params.require(:article).permit(:title, :content, category_ids: [])
   end
 
   def require_same_user

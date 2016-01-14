@@ -1,0 +1,10 @@
+%h1.text-center
+  = "Category: " + @category.name
+
+.text-center
+  = will_paginate @category_articles
+
+= render 'articles/article', obj: @category_articles
+
+.text-center
+  = will_paginate @category_articles
