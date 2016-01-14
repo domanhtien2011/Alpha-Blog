@@ -2,6 +2,10 @@
   = "Category: " + @category.name
 
 .text-center
+  - if logged_in? && current_user.admin?
+    .row
+      %span.badge
+        = link_to("Edit Category Name", edit_category_url(@category))
   = will_paginate @category_articles
 
 = render 'articles/article', obj: @category_articles

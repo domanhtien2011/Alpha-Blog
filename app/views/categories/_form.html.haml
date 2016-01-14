@@ -1,0 +1,18 @@
+/ Don't put the class form-horizontal on top of form_for because it will generate 2 form tokens(I dont know what the heck it is...) Otherswise, I will get stuck with an error on the server forever.
+= render "shared/errors", obj: @category
+
+= form_for(@category, :html => { class: "form-horizontal", role: "form" }) do |f|
+  .form-group
+    .control-label.col-sm-2
+      = f.label :category
+    .col-sm-8
+      = f.text_field :name, class: "form-control", placeholder: "Enter the name of the category...", autofocus: true
+
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit class: "btn btn-info"
+
+  .col-xs-4.col-xs-offset-4
+    [ |
+    = link_to("Cancel request and return to articles listing", articles_url)
+    ]
